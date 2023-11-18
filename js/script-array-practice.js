@@ -301,24 +301,85 @@ console.log(mergeMovies) // with added movies
 
 //Now, loop through the array and filter out and display only the movie names. You must use the filter() method and you’ll need to filter out the names by their primitive data type.
 
-movies = [["High School Musical", 1], ["Whiplash", 2], ["Top Gun: Maverick", 3], ["Barbie", 4], ["The Perks of Being a Wallflower", 5], [2, 6]];
 /*
-let stringMovies = movies.filter((item) => {
-    
-    return item
-})
+movies = [["High School Musical", 1], ["Whiplash", 2], ["Top Gun: Maverick", 3], ["Barbie", 4], ["The Perks of Being a Wallflower", 5], "yuh"];
+
+for (movie of movies) {
+    let filtStrMovie = movie.filter((item => {
+        return typeof item === 'string'
+    }))
+    console.log(filtStrMovie[0])
+}
 */
 
-let stringMovies = movies.filter((item) => {
-    
-    return typeof item[0] === 'string'
-})
 
-console.log(stringMovies)
 //STEP 14
+//Create a string array called employees using literal notation and populate the array with several employee names. Then, create an anonymous function called showEmployee. 
+//The function should accept a parameter. Call this function, passing in the employees array into the function as a parameter. Make sure to display the result in the console window. 
+//Within the function, loop through the passed in array and display the result so that it looks exactly like this in the console window:
+
+
+//Employees:
+
+//ZAK
+//JESSICA
+//MARK
+//FRED
+//SALLY//
+
+/*
+let empArray = ["ZAK", "JESSICA", "MARK", "FRED", "SALLY"]
+let showEmployee = function(inpArr) {
+    console.log("Employees: ")
+    console.log("\n")
+
+    for (emp of inpArr) {
+        console.log(emp)
+    }
+}
+console.log(showEmployee(empArray))
+
+*/
 
 //STEP 15
+// Write a JavaScript function to filter false, null, 0 and blank values from an array.
+//Test Data: console.log(filterValues([58, '', 'abcd', true, null, false, 0]))
+//Expected Result: [58, "abcd", true]
+
+/*
+let testFiltArr = [58, '', 'abcd', true, null, false, 0]
+
+function filterValues(inpArr) {
+    let valuesKeep = inpArr.filter((item) => {
+        return item != false && item != null && item != 0 && item != ''
+    })
+    return valuesKeep
+}
+
+console.log(filterValues(testFiltArr))
+*/
 
 //STEP 16
+// Write a JavaScript function to get a random item from an array. 
+//So if I create a numeric array with 10 numbers and then pass that array into my function, the function should randomly return one of those numbers.
+
+/*
+let numArrRand = [33, 55, 11, 22, 99, 77, 44, 00, 66, 88]
+
+function sampleRandEle(inpArr) {
+    let randInd = Math.floor(Math.random() * inpArr.length)
+    console.log(inpArr[randInd])
+    return inpArr[randInd]
+}
+sampleRandEle(numArrRand)
+*/
 
 //STEP 17
+// Write a JavaScript function to get the largest number from a numeric array.
+/*
+let numArr = [3, 5, 1, 2, 9, 7]
+let largestNum = numArr.reduce((previousValue, value) => {
+     return previousValue > value ? previousValue : value
+})
+console.log(largestNum)
+*/
