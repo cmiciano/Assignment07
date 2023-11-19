@@ -12,12 +12,11 @@ emplArray = [["12345678", "Clara Bolton", "0121", "c@last.com", "Administrative"
 
 // CHECK TO SEE IF STORAGE OBJECT EXISTS WHEN THE PAGE LOADS
 // IF DOES, RETURN STORAGE OBJECT INTO ARRAY INSTEAD OF POPULATED ARRAY
-console.log(`session`)
-console.log(JSON.parse(sessionStorage.getItem('employees')))
 if (localStorage.employees) {
     emplArray = JSON.parse(localStorage.getItem('employees'))
 } 
 
+console.log(emplArray)
 // GET DOM ELEMENTS
 let form = $('addForm')
 let tabl= $('empTable')
@@ -72,7 +71,7 @@ empTable.addEventListener('click', (e) => {
         if (confirm("Do you really want to remove the employee?") == true) {
 
             // GET THE SELECTED ROWINDEX FOR THE TR (PARENTNODE.PARENTNODE)
-            let rowToRemove = e.target.parentNode.parentNode.rowIndex 
+            let rowToRemove = e.target.parentElement.parentElement.rowIndex 
             console.log(rowToRemove)
 
             // REMOVE EMPLOYEE FROM ARRAY
@@ -103,17 +102,22 @@ function buildGrid() {
 
     // LOOP THROUGH THE ARRAY OF EMPLOYEES
     for (emp of emplArray ) {
-        var tr = document.createElement('tr');
+        let tr = document.createElement('tr');
 
+        let inpIdVal = emp[0]
+        let inpNameVal = emp[1]
+        let inpExtVal = emp[2]
+        let inpEmailVal = emp[3]
+        let inpDeptVal = emp[4]
 
-        // REBUILDING THE ROW STRUCTURE
-        for (let i = 0; i < emp.length; i++) {
-            let cellVal = emp[i]
-            var td = document.createElement('td');
-            td.innerHTML = cellVal
-            tr.appendChild(td)
-        }
+        // REBUILD ROW STRUCTURE
+        tr.innerHTML = `<td>${inpIdVal}</td>
+                          <td>${inpNameVal}</td>
+                          <td>${inpExtVal}</td>
+                          <td>${inpEmailVal}</td>
+                         <td>${inpDeptVal}</td>`
 
+        
         // add delete button
         var buttonCell = document.createElement('td');
         let delBtn = document.createElement('button')

@@ -160,7 +160,8 @@ let formattedLFMovies = leastFavMovies.join("\n")
 console.log(formattedLFMovies)
 
 let mergeMovies = movies.concat(leastFavMovies)
-console.log(mergeMovies.reverse())
+mergeMovies = mergeMovies.reverse()
+console.log(mergeMovies)
 */
 
 //STEP 10
@@ -189,7 +190,8 @@ let formattedLFMovies = leastFavMovies.join("\n")
 console.log(formattedLFMovies)
 
 let mergeMovies = movies.concat(leastFavMovies)
-console.log(mergeMovies.reverse())
+mergeMovies = mergeMovies.reverse()
+console.log(mergeMovies)
 
 console.log(mergeMovies.pop()) // return the last item in the array
 */
@@ -222,7 +224,8 @@ let formattedLFMovies = leastFavMovies.join("\n")
 console.log(formattedLFMovies)
 
 let mergeMovies = movies.concat(leastFavMovies)
-console.log(mergeMovies.reverse())
+mergeMovies = mergeMovies.reverse()
+console.log(mergeMovies)
 
 console.log(mergeMovies.shift()) // return the first item in the array
 */
@@ -242,7 +245,7 @@ movies[6] = "Spiderman: Across the Spiderverse"
 
 console.log("Movies I like: \n\n")
 let formattedMovies = movies.join("\n")
-//console.log(formattedMovies)
+console.log(formattedMovies)
 
 let leastFavMovies = []
 leastFavMovies[0] = "Enola Holmes"
@@ -251,17 +254,15 @@ leastFavMovies[2] = "Fantastic Beasts: The Secrets of Dumbledore"
 
 console.log("Movies I regret watching: \n\n")
 let formattedLFMovies = leastFavMovies.join("\n")
-//console.log(formattedLFMovies)
+console.log(formattedLFMovies)
 
 let mergeMovies = movies.concat(leastFavMovies)
-mergeMovies = mergeMovies.sort()
-console.log(`movies ${mergeMovies}`)
+mergeMovies = mergeMovies.reverse()
+console.log(mergeMovies)
 
-
+// helper function to get indices of movies that i dislike
 function inDislikeList(arrayElement, mergeMovies, dlArray) {
     if (dlArray.indexOf(arrayElement) != -1) {
-        console.log(mergeMovies.indexOf(arrayElement))
-        console.log(arrayElement)
         let dlMovieInd = mergeMovies.indexOf(arrayElement)
         return dlMovieInd  
     }
@@ -269,7 +270,7 @@ function inDislikeList(arrayElement, mergeMovies, dlArray) {
 }
 
 
-// retrieve indices of movies that i dislike
+// retrieve indices of movies that i dislike and add to array
 dlInds = []
 for (mo of mergeMovies) {
     let movieInd = inDislikeList(mo, mergeMovies, leastFavMovies)
@@ -278,21 +279,18 @@ for (mo of mergeMovies) {
     }
 
 }
-console.log(dlInds)
-//console.log(dlInds)
 
 moviesDoLike = ["Wizard of Oz", "About Time", "Paddington"]
 
 //Add movies that i like at the indices of the movies i don't like
 for (let i = 0; i < mergeMovies.length; i++) {
-    console.log(mergeMovies[i])
     if (dlInds.includes(i) == true) {
         mergeMovies[i] = moviesDoLike.shift()
     } 
 }
 console.log(mergeMovies) // with added movies
-
 */
+
 
 //STEP 13
 //Create a multi-dimensional array that contains your 5 favorite movies and their ranking from 1-5. The array should look something like this:
